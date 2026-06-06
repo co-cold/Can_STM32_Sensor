@@ -3,6 +3,7 @@
 - 作为can设备节点 与imx6ull实现can通讯
 - 作为分层训练学习 App层 Service层 Bsp层
 - 功能包括 can uart encoder
+- 后续可能添加新的模块功能学习
 
 ## 项目架构设计 学习参考
 
