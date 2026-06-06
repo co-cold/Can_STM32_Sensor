@@ -1,0 +1,27 @@
+{
+    "files.associations": {
+        "cstdio": "c",
+        "cstdarg": "c",
+        "stdint.h": "c",
+        "compare": "cpp",
+        "cstdint": "cpp",
+        "bit": "cpp",
+        "cmath": "cpp",
+        "concepts": "cpp",
+        "type_traits": "cpp",
+        "limits": "cpp",
+        "new": "cpp",
+        "typeinfo": "cpp",
+        "cstdlib": "cpp",
+        "bsp_uart.h": "c",
+        "usart.h": "c",
+        "svc_interface.h": "c",
+        "string.h": "c",
+        "can.h": "c",
+        "svc_can.h": "c",
+        "bsp_encoder.h": "c",
+        "svc_encoder.h": "c",
+        "cmsis_os.h": "c"
+    },
+    "Codegeex.RepoIndex": true
+}

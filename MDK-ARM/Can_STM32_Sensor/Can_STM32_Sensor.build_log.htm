@@ -1,0 +1,88 @@
+<html>
+<body>
+<pre>
+<h1>�Vision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ��Vision V5.34.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: coco coco, coco, LIC=UJWP0-B1QIE-BSIYX-H4ZU2-0PQ1H-CDZ8C
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.34.0.0
+Toolchain Path:  D:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.34.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.8.0
+Dialog DLL:      TCM.DLL V1.48.0.0
+ 
+<h2>Project:</h2>
+D:\C-app\HAL_STM32\Can_STM32_Sensor\MDK-ARM\Can_STM32_Sensor.uvprojx
+Project File Date:  06/06/2026
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'Can_STM32_Sensor'
+compiling freertos.c...
+../User/App/Inc/app_main.h(6): warning:  #1-D: last line of file ends without a newline
+  #endif
+../Core/Src/freertos.c(125): warning:  #1-D: last line of file ends without a newline
+  /* USER CODE END Application */
+../Core/Src/freertos.c: 2 warnings, 0 errors
+compiling app_encoder.c...
+../User/App/Inc/app_encoder.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+../User/Bsp/Inc/bsp_uart.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+../User/Utils/Inc/ringbuf.h(47): warning:  #1-D: last line of file ends without a newline
+  #endif
+../User/Service/Inc/svc_uart.h(42): warning:  #1-D: last line of file ends without a newline
+  #endif
+../User/Bsp/Inc/bsp_can.h(19): warning:  #1-D: last line of file ends without a newline
+  #endif
+../User/Service/Inc/svc_can.h(29): warning:  #1-D: last line of file ends without a newline
+  #endif
+../User/Service/Inc/svc_encoder.h(42): warning:  #1-D: last line of file ends without a newline
+  #endif
+../User/Service/Inc/svc_interface.h(19): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\User\App\Src\app_encoder.c(35): warning:  #870-D: invalid multibyte character sequence
+                  "[ENCODER] 发送成�?: 计数=%d, 方向=%d, 速度=%.1f RPM, 角度=%.1f度\r\n",
+..\User\App\Src\app_encoder.c(45): warning:  #1-D: last line of file ends without a newline
+  }
+..\User\App\Src\app_encoder.c: 10 warnings, 0 errors
+linking...
+Program Size: Code=24884 RO-data=696 RW-data=140 ZI-data=15836  
+FromELF: creating hex file...
+"Can_STM32_Sensor\Can_STM32_Sensor.axf" - 0 Error(s), 12 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.4.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.1.pack
+                Keil.STM32F1xx_DFP.2.4.1
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_Can_STM32_Sensor
+  D:\Keil_v5\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  D:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.1\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.4.0
+      Include file:  CMSIS\Core\Include\tz_context.h
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
