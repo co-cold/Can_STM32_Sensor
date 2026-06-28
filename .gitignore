@@ -1,2 +1,18 @@
-*.txt
+# Keil MDK build artifacts
+*.o
+*.crf
+*.d
+*.axf
+*.hex
+*.htm
+*.lnp
+*.map
+*.dep
+*.build_log.htm
+*.lst
 
+# User-specific Keil settings
+*.uvguix.*
+
+# Text files
+*.txt
