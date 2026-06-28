@@ -14,7 +14,7 @@ void App_Encoder_Task(void *argument)
     {
         data = svc_interface.encoder.GetData();
 
-        /* 打包CAN数据 */
+        // 打包CAN数据
         speed_i = (int16_t)(data.speed_rpm * 10.0f);
         angle_i = (int16_t)(data.angle * 10.0f);
 
@@ -29,7 +29,7 @@ void App_Encoder_Task(void *argument)
 
         Svc_Uart_Printf(&svc_interface.uart, "[ENCODER] 准备发送CAN\r\n");
 
-        if (svc_interface.can.Send(0x100, can_data, 8, 100) == 0)
+        if (svc_interface.can.Send(0x100, can_data, 8, 100) > 0)
         {
             Svc_Uart_Printf(&svc_interface.uart,
                 "[ENCODER] 发送成功: 计数=%d, 方向=%d, 速度=%.1f RPM, 角度=%.1f度\r\n",
@@ -39,7 +39,7 @@ void App_Encoder_Task(void *argument)
         {
             Svc_Uart_Printf(&svc_interface.uart, "[ENCODER] 发送失败\r\n");
         }
-
         osDelay(1000);
     }
+	vTaskDelete(NULL);
 }

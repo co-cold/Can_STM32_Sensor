@@ -19,7 +19,6 @@ typedef struct
     osMessageQueueId_t rx_queue;
 
     /* 接口函数 */
-    void (*Init)(void);
     int  (*Send)(uint32_t id, uint8_t *data, uint8_t len, uint32_t timeout_ms);
     int  (*RecvFrame)(CAN_RxMsg_t *msg, uint32_t timeout_ms);
 } svc_can_t;

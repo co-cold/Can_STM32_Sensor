@@ -12,7 +12,7 @@ static void Svc_Encoder_Update(void)
 {
     Encoder_State_t *s = &ENCODER_IF.state;
     int16_t current_count = Bsp_Encoder_GetCount();
-    uint32_t current_time = HAL_GetTick();
+    uint32_t current_time = Bsp_Encoder_GetTick();
 
     if(s->prev_time == 0) {
         s->prev_time = current_time;

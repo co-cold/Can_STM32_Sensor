@@ -7,19 +7,19 @@
 /* 任务属性（和 CubeMX 里配置的一致） */
 const osThreadAttr_t encoderTask_attributes = {
   .name = "EncoderTask",
-  .stack_size = 256 * 4,
+  .stack_size = 1024,
   .priority = (osPriority_t) osPriorityNormal,
 };
 
 const osThreadAttr_t canTask_attributes = {
   .name = "CanTask",
-  .stack_size = 256 * 4,
+  .stack_size = 1024,
   .priority = (osPriority_t) osPriorityNormal,
 };
 
 const osThreadAttr_t uartTask_attributes = {
   .name = "UartTask",
-  .stack_size = 256 * 4,
+  .stack_size = 1024,
   .priority = (osPriority_t) osPriorityNormal,
 };
 

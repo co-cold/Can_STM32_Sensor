@@ -10,7 +10,7 @@ void App_Can_Rx_Task(void *argument)
 
     while (1)
     {
-        if (svc_interface.can.RecvFrame(&rx_msg, osWaitForever) == 0)
+        if (svc_interface.can.RecvFrame(&rx_msg, osWaitForever) > 0)
         {
             Svc_Uart_Printf(&svc_interface.uart,
                 "[CAN_RX] ID=0x%03X, 长度=%d, 数据:", rx_msg.id, rx_msg.len);
@@ -21,5 +21,7 @@ void App_Can_Rx_Task(void *argument)
             }
             Svc_Uart_Printf(&svc_interface.uart, "\r\n");
         }
+        osDelay(1000);
     }
+	vTaskDelete(NULL);
 }

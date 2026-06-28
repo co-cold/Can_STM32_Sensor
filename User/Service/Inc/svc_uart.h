@@ -7,7 +7,6 @@
 #include "cmsis_os.h"
 
 #define RINGBUF_SIZE 512
-#define DMA_SIZE 256
 
 /**
  * @brief UART服务接口
@@ -20,7 +19,6 @@ typedef struct
     /* 数据缓冲区 */
     RingBuf_t rx_ringbuf;
     uint8_t rx_ringbuf_men[RINGBUF_SIZE];
-    uint8_t dma_rx_buf[DMA_SIZE];
 
     /* RTOS 同步 */
     osMutexId_t tx_mutex;
@@ -28,7 +26,6 @@ typedef struct
     osMessageQueueId_t rx_queue;
 
     /* 接口函数 */
-    void (*Init)(void);
     int (*Send)(uint8_t *data, uint16_t len, uint32_t timeout_ms);
     int (*RecvFrame)(uint8_t *buf, uint16_t buf_size, uint32_t timeout_ms);
     uint16_t (*Available)(void);

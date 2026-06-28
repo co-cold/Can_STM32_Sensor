@@ -19,5 +19,7 @@ void App_Uart_Rx_Task(void *argument)
             Svc_Uart_Printf(&svc_interface.uart,
                 "[APP_UART] 收到(%d字节): %s\r\n", len, buf);
         }
+        osDelay(1000);
     }
+	vTaskDelete(NULL);
 }

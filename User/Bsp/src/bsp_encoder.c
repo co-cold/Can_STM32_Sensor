@@ -1,5 +1,10 @@
 #include "bsp_encoder.h"
 
+uint32_t Bsp_Encoder_GetTick(void)
+{
+    return HAL_GetTick();
+}
+
 void Bsp_Encoder_Start(void)
 {
     HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);

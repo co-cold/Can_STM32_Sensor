@@ -11,9 +11,18 @@ typedef struct {
     uint8_t  len;     // 数据长度 (0-8)
 } CAN_RxMsg_t;
 
-void Bsp_Can_Init(void);
+/* 回调函数类型 */
+typedef void (*Bsp_Can_TxCpltCallback)(void);
+typedef void (*Bsp_Can_RxCpltCallback)(CAN_RxMsg_t *msg);
+
+/* 回调注册函数 */
+void Bsp_Can_RegisterTxCpltCallback(Bsp_Can_TxCpltCallback cb);
+void Bsp_Can_RegisterRxCpltCallback(Bsp_Can_RxCpltCallback cb);
+
+/* 纯硬件操作函数 */
+int  Bsp_Can_Start(void);
+int  Bsp_Can_StartTx(uint32_t id, uint8_t *data, uint8_t len);
+void Bsp_Can_AbortTx(uint32_t tx_mailbox);
 void Bsp_Can_ConfigFilter(uint32_t id, uint32_t mask);
-int Bsp_Can_Send(uint32_t id, uint8_t *data, uint8_t len, uint32_t timeout_ms);
-int Bsp_Can_RecvFrame(CAN_RxMsg_t *msg, uint32_t timeout_ms);
 
 #endif
