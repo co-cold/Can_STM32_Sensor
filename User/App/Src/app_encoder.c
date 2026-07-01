@@ -1,14 +1,28 @@
 #include "app_encoder.h"
 #include "svc_interface.h"
+#include "svc_oled.h"
 #include "cmsis_os.h"
+#include <stdio.h>
+
+/* OLED 设备实例：静态分配，不占任务栈（1KB 显存） */
+static svc_oled_t oled_dev;
+static uint8_t oled_inited = 0;
 
 void App_Encoder_Task(void *argument)
 {
     Encoder_Data_t data;
     uint8_t can_data[8];
     int16_t speed_i, angle_i;
+    char buf[22];
 
     Svc_Uart_Printf(&svc_interface.uart, "[ENCODER] 编码器任务已启动\r\n");
+
+    /* 初始化 OLED */
+    if (!oled_inited) {
+        Svc_Oled_Init(&oled_dev);
+        oled_inited = 1;
+        Svc_Uart_Printf(&svc_interface.uart, "[ENCODER] OLED 初始化完成\r\n");
+    }
 
     while (1)
     {
@@ -39,7 +53,25 @@ void App_Encoder_Task(void *argument)
         {
             Svc_Uart_Printf(&svc_interface.uart, "[ENCODER] 发送失败\r\n");
         }
+
+        /* OLED 显示编码器数据 */
+        Svc_Oled_Clear(&oled_dev);
+
+        snprintf(buf, sizeof(buf), "Encoder Monitor");
+        Svc_Oled_ShowString(&oled_dev, 0, 0, buf);
+
+        snprintf(buf, sizeof(buf), "Cnt:%d Dir:%d", data.count, data.dir);
+        Svc_Oled_ShowString(&oled_dev, 0, 2, buf);
+
+        snprintf(buf, sizeof(buf), "Spd:%.1f RPM", data.speed_rpm);
+        Svc_Oled_ShowString(&oled_dev, 0, 4, buf);
+
+        snprintf(buf, sizeof(buf), "Ang:%.1f deg", data.angle);
+        Svc_Oled_ShowString(&oled_dev, 0, 6, buf);
+
+        Svc_Oled_Refresh(&oled_dev);
+
         osDelay(1000);
     }
-	vTaskDelete(NULL);
+    vTaskDelete(NULL);
 }
