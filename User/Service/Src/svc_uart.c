@@ -158,17 +158,21 @@ void Svc_Uart_InitInstance(svc_uart_t *pIf)
     Bsp_Uart_RegisterTxCpltCallback(Svc_Uart_TxComplete);
     Bsp_Uart_RegisterRxCpltCallback(Svc_Uart_RxComplete);
 
-    /* 启动 DMA 接收 */
-    if (Bsp_Uart_StartRxDma() != 0) {
-        pIf->ConnectionError = 1;
-        return;
-    }
-
     /* 挂载函数指针 */
     pIf->Send          = Svc_Uart_Send;
     pIf->RecvFrame     = Svc_Uart_RecvFrame;
     pIf->Available     = Svc_Uart_Available;
     pIf->SendBlocking  = Svc_Uart_SendBlocking;
+}
+
+/**
+ * @brief 启动 DMA 接收
+ * @note 在 OLED 初始化完成后、调度器启动后调用，避免中断干扰 OLED SPI 时序
+ */
+void Svc_Uart_StartRx(void)
+{
+    if (g_uart_if == NULL || g_uart_if->ConnectionError) return;
+    Bsp_Uart_StartRxDma();
 }
 
 #define PRINTF_BUF_SIZE 256
@@ -187,5 +191,9 @@ void Svc_Uart_Printf(svc_uart_t *uart, const char *format, ...)
         len = (int)sizeof(buf) - 1;
     }
 
-    uart->SendBlocking((uint8_t *)buf, (uint16_t)len);
+    if (osKernelGetState() == osKernelRunning) {
+        uart->Send((uint8_t *)buf, (uint16_t)len, osWaitForever);
+    } else {
+        uart->SendBlocking((uint8_t *)buf, (uint16_t)len);
+    }
 }

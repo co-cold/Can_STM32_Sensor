@@ -33,7 +33,7 @@ typedef struct
 } svc_uart_t;
 
 void Svc_Uart_InitInstance(svc_uart_t *pIf);
-
+void Svc_Uart_StartRx(void);
 void Svc_Uart_Printf(svc_uart_t *uart, const char *format, ...);
 
 #endif
