@@ -4,6 +4,7 @@
 #include "svc_can.h"
 #include "svc_encoder.h"
 #include "svc_i2c.h"
+#include "svc_key.h"
 
 /* 定义全局接口实例 */
 svc_interface_t svc_interface;
@@ -18,4 +19,5 @@ void Svc_Interface_Init(void)
     Svc_Can_InitInstance(&svc_interface.can);
     Svc_Encoder_InitInstance(&svc_interface.encoder, 1024);
     Svc_I2c_InitInstance();
+    Svc_Key_InitInstance(&svc_interface.key);
 }

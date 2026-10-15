@@ -39,7 +39,7 @@ void MX_CAN_Init(void)
   /* USER CODE END CAN_Init 1 */
   hcan.Instance = CAN1;
   hcan.Init.Prescaler = 9;
-  hcan.Init.Mode = CAN_MODE_LOOPBACK;
+  hcan.Init.Mode = CAN_MODE_NORMAL;   /* OBD2 模拟器: 对外接 TJA1050 收发器 <-> i.MX6ULL */
   hcan.Init.SyncJumpWidth = CAN_SJW_1TQ;
   hcan.Init.TimeSeg1 = CAN_BS1_6TQ;
   hcan.Init.TimeSeg2 = CAN_BS2_1TQ;

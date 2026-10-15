@@ -1754,9 +1754,19 @@
               <FilePath>..\User\App\Src\app_encoder.c</FilePath>
             </File>
             <File>
+              <FileName>app_obd2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\App\Src\app_obd2.c</FilePath>
+            </File>
+            <File>
               <FileName>app_main.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\App\Src\app_main.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_hmi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\App\Src\app_hmi.c</FilePath>
             </File>
             <File>
               <FileName>app_uart.c</FileName>
@@ -1794,6 +1804,11 @@
               <FilePath>..\User\Service\Src\svc_i2c.c</FilePath>
             </File>
             <File>
+              <FileName>svc_key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Service\Src\svc_key.c</FilePath>
+            </File>
+            <File>
               <FileName>svc_oled.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\Service\Src\svc_oled.c</FilePath>
@@ -1822,6 +1837,11 @@
               <FileName>bsp_i2c.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\Bsp\src\bsp_i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Bsp\src\bsp_key.c</FilePath>
             </File>
             <File>
               <FileName>bsp_oled.c</FileName>
